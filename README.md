@@ -1,4 +1,4 @@
-# Database_Systems
+# Database Systems
 
 ## Student Registration System, Database Systems.					                                [August 2018 - December 2018]
 
