@@ -1,0 +1,21 @@
+Normalization
+----------------
+Keys
+I'll take example of an Employee table:
+Employee (
+Employee ID, -> Can be candidate key(uniquely identify the tuple)->Primary key
+FullName,
+SSN, -> Can be candidate key(uniquely identify the tuple)-> Alternate key
+DeptID
+)
+
+1. Candidate Key: are individual columns in a table that qualifies for uniqueness of all the rows. Here in Employee table EmployeeID & SSN are Candidate keys.
+
+2. Primary Key: is the columns you choose to maintain uniqueness in a table. Here in Employee table you can choose either EmployeeID or SSN columns, EmployeeID is preferable choice, as SSN is a secure value.
+
+3. Alternate Key: Candidate column other the Primary column, like if EmployeeID is PK then SSN would be the Alternate key.
+
+4. Super Key: If you add any other column/attribute to a Primary Key then it become a super key, like EmployeeID + FullName is a Super Key.
+
+5. Composite Key: If a table do have a single columns that qualifies for a Candidate key, then you have to select 2 or more columns to make a row unique. Like if there is no EmployeeID or SSN columns, then you can make FullName + DateOfBirth as Composite primary Key. But still there can be a narrow chance of duplicate row.
+

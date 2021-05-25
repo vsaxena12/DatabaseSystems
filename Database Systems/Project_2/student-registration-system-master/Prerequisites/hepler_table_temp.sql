@@ -1,0 +1,1 @@
+create table temp (dept_code varchar2(4) not null,course_no number(3) not null);

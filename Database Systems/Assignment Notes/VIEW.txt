@@ -1,0 +1,110 @@
+SQL> /* Create VIEW */
+SQL> start CSCourses;
+SQL> create view CSCourses as
+  2  select dept_code, course#, title
+  3  from
+  4  courses
+  5  where dept_code='CS';
+
+View created.
+
+SQL> select * from CSCourses;
+
+DEPT    COURSE# TITLE                                                           
+---- ---------- --------------------                                            
+CS          432 database systems                                                
+CS          240 data structure                                                  
+CS          532 database systems                                                
+CS          552 operating systems                                               
+
+SQL> /* Insert */
+SQL> start insertCSCourses;
+SQL> insert into CSCourses values ('CS', 554, 'data miniing');
+
+1 row created.
+
+SQL> select * from CSCourses;
+
+DEPT    COURSE# TITLE                                                           
+---- ---------- --------------------                                            
+CS          432 database systems                                                
+CS          240 data structure                                                  
+CS          532 database systems                                                
+CS          552 operating systems                                               
+CS          554 data miniing                                                    
+
+SQL> /* Update */
+SQL> start updateCSCourses;
+SQL> update CSCourses
+  2  set title = 'Compiler Design'
+  3  where
+  4  course# like 552;
+
+1 row updated.
+
+SQL> select * from CSCourses;
+
+DEPT    COURSE# TITLE                                                           
+---- ---------- --------------------                                            
+CS          432 database systems                                                
+CS          240 data structure                                                  
+CS          532 database systems                                                
+CS          552 Compiler Design                                                 
+CS          554 data miniing                                                    
+
+SQL> /* Delete */
+SQL> start deleteCSCourses;
+SQL> delete from CSCourses
+  2  where
+  3  course# = 554;
+
+1 row deleted.
+
+SQL> select * from CSCourses;
+
+DEPT    COURSE# TITLE                                                           
+---- ---------- --------------------                                            
+CS          432 database systems                                                
+CS          240 data structure                                                  
+CS          532 database systems                                                
+CS          552 Compiler Design                                                 
+
+SQL> /* Insert Math Course */
+SQL> start insertMathCSCourses;
+SQL> insert into CSCourses values ('Math', 457, 'Integration');
+
+1 row created.
+
+SQL> /* VIEW display after Insert Math Course */
+SQL> select * from CSCourses;
+
+DEPT    COURSE# TITLE                                                           
+---- ---------- --------------------                                            
+CS          432 database systems                                                
+CS          240 data structure                                                  
+CS          532 database systems                                                
+CS          552 Compiler Design                                                 
+
+SQL> /* Base Table display after Insert Math Course */
+SQL> select * from Courses;
+
+DEPT    COURSE# TITLE                                                           
+---- ---------- --------------------                                            
+CS          432 database systems                                                
+Math        314 discrete math                                                   
+CS          240 data structure                                                  
+Math        221 calculus I                                                      
+CS          532 database systems                                                
+CS          552 Compiler Design                                                 
+Biol        425 molecular biology                                               
+Math        457 Integration                                                     
+
+8 rows selected.
+
+SQL> spool off
+
+/*
+Hence, it is possible to insert a new math course via 'VIEW' 'CScourses' into the base table 'Courses'.
+However, 'CSCourses' will not display the new math course as 'CSCourses' reflects only CS courses.
+The new math course is inserted into the base table 'Courses' and hence can be displayed under 'Courses' table.
+*/
